@@ -1,0 +1,354 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_nav_graph"
+    app:startDestination="@id/firstPageFragment">
+
+    <fragment
+        android:id="@+id/splashScreenFragment"
+        android:name="com.example.xpayback.ui.splash.SplashScreenFragment"
+        android:label="fragment_splash_screen"
+        tools:layout="@layout/fragment_splash_screen">
+
+        <action
+            android:id="@+id/action_splashScreenFragment_to_splashFragmentTwo"
+            app:destination="@id/splashFragment2" />
+        <action
+            android:id="@+id/action_splashScreenFragment_to_homeFragment"
+            app:destination="@id/dashBoardFragmentHome" />
+
+    </fragment>
+    <fragment
+        android:id="@+id/loginPage"
+        android:name="com.example.xpayback.ui.auth.LoginPage"
+        android:label="fragment_login_page"
+        tools:layout="@layout/fragment_login_page">
+        <action
+            android:id="@+id/action_loginPage_to_verificationPhFragment"
+            app:destination="@id/verificationPhFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/verificationPhFragment"
+        android:name="com.example.xpayback.ui.auth.VerificationPhFragment"
+        android:label="fragment_verification_ph"
+        tools:layout="@layout/fragment_verification_ph">
+        <action
+            android:id="@+id/action_verificationPhFragment_to_signupFragment1"
+            app:destination="@id/signupFragment1" />
+        <action
+            android:id="@+id/action_verificationPhFragment_to_homeFragment"
+            app:destination="@id/dashBoardFragmentHome" />
+
+        <action
+            android:id="@+id/action_verificationPhFragment_to_login"
+            app:destination="@id/loginPage" />
+    </fragment>
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.example.xpayback.ui.home.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" >
+<!--        <action-->
+<!--            android:id="@+id/action_homeFragment_to_qrScannerFragment"-->
+<!--            app:destination="@id/qrScannerFragment" />-->
+<!--        <action-->
+<!--            android:id="@+id/action_homeFragment_to_profileFragment"-->
+<!--            app:destination="@id/profileFragment" />-->
+<!--        <action-->
+<!--            android:id="@+id/action_homeFragment_to_notificationFragment"-->
+<!--            app:destination="@id/notificationFragment" />-->
+<!--        <action-->
+<!--            android:id="@+id/action_homeFragment_to_locationFragment"-->
+<!--            app:destination="@id/locationFragment" />-->
+    </fragment>
+    <fragment
+        android:id="@+id/signupFragment1"
+        android:name="com.example.xpayback.ui.signUp.SignupFragment1"
+        android:label="fragment_signup1"
+        tools:layout="@layout/fragment_signup1" >
+        <action
+            android:id="@+id/action_signupFragment1_to_signUpFragment2"
+            app:destination="@id/signUpFragment2" />
+    </fragment>
+    <fragment
+        android:id="@+id/signUpFragment2"
+        android:name="com.example.xpayback.ui.signUp.SignUpFragment2"
+        android:label="fragment_sign_up2"
+        tools:layout="@layout/fragment_sign_up2" >
+        <action
+            android:id="@+id/action_signUpFragment2_to_signupFragment3"
+            app:destination="@id/signupFragment3" />
+    </fragment>
+    <fragment
+        android:id="@+id/signupFragment3"
+        android:name="com.example.xpayback.ui.signUp.SignupFragment3"
+        android:label="fragment_signup3"
+        tools:layout="@layout/fragment_signup3" >
+        <action
+            android:id="@+id/action_signupFragment3_to_signUpFragment4"
+            app:destination="@id/signUpFragment4" />
+    </fragment>
+    <fragment
+        android:id="@+id/signUpFragment4"
+        android:name="com.example.xpayback.ui.signUp.SignUpFragment4"
+        android:label="fragment_sign_up4"
+        tools:layout="@layout/fragment_sign_up4" >
+        <action
+            android:id="@+id/action_signUpFragment4_to_homeFragment"
+            app:destination="@id/dashBoardFragmentHome" />
+    </fragment>
+    <fragment
+        android:id="@+id/splashFragment2"
+        android:name="com.example.xpayback.ui.splash.SplashFragment2"
+        android:label="fragment_splash2"
+        tools:layout="@layout/fragment_splash2" >
+        <action
+            android:id="@+id/action_splashFragment2_to_loginPage"
+            app:destination="@id/loginPage" />
+        <action
+            android:id="@+id/action_splashFragment2_to_signupFragment1"
+            app:destination="@id/signupFragment1" />
+        <action
+            android:id="@+id/action_splashFragment2_to_homeFragment"
+            app:destination="@id/dashBoardFragmentHome" />
+    </fragment>
+    <fragment
+        android:id="@+id/qrScannerFragment"
+        android:name="com.example.xpayback.ui.home.QrScannerFragment"
+        android:label="fragment_qr_scanner"
+        tools:layout="@layout/fragment_qr_scanner" >
+        <action
+            android:id="@+id/action_qrScannerFragment_to_homeFragment"
+            app:destination="@id/dashBoardFragmentHome" />
+    </fragment>
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.example.xpayback.ui.home.profile.ProfileFragment"
+        android:label="fragment_profile"
+        tools:layout="@layout/fragment_profile" >
+        <action
+            android:id="@+id/action_profileFragment_to_homeFragment"
+            app:destination="@id/dashBoardFragmentHome" />
+        <action
+            android:id="@+id/action_profileFragment_to_loginPage"
+            app:destination="@id/loginPage" />
+        <action
+            android:id="@+id/action_profileFragment_to_editProfileFragment"
+            app:destination="@id/editProfileFragment" />
+        <action
+            android:id="@+id/action_profileFragment_to_settingFragment"
+            app:destination="@id/settingFragment" />
+        <action
+            android:id="@+id/action_profileFragment_to_walletHomeFragment"
+            app:destination="@id/walletHomeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/notificationFragment"
+        android:name="com.example.xpayback.NotificationFragment"
+        android:label="fragment_notification"
+        tools:layout="@layout/fragment_notification" >
+        <action
+            android:id="@+id/action_notificationFragment_to_homeFragment"
+            app:destination="@id/dashBoardFragmentHome" />
+    </fragment>
+    <fragment
+        android:id="@+id/editProfileFragment"
+        android:name="com.example.xpayback.ui.home.profile.EditProfileFragment"
+        android:label="fragment_edit_profile"
+        tools:layout="@layout/fragment_edit_profile" >
+        <action
+            android:id="@+id/action_editProfileFragment_to_kycFragment"
+            app:destination="@id/kycFragment" />
+        <action
+            android:id="@+id/action_editProfileFragment_to_profileFragment"
+            app:destination="@id/profileFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/kycFragment"
+        android:name="com.example.xpayback.ui.home.kyc.KycFragment"
+        android:label="fragment_kyc"
+        tools:layout="@layout/fragment_kyc" >
+        <action
+            android:id="@+id/action_kycFragment_to_kfcRegistractionFragment"
+            app:destination="@id/kfcRegistractionFragment" />
+        <action
+            android:id="@+id/action_kycFragment_to_editProfileFragment"
+            app:destination="@id/editProfileFragment" />
+
+    </fragment>
+    <fragment
+        android:id="@+id/kfcRegistractionFragment"
+        android:name="com.example.xpayback.ui.home.kyc.KfcRegistractionFragment"
+        android:label="fragment_kfc_registraction"
+        tools:layout="@layout/fragment_kfc_registraction" >
+        <action
+            android:id="@+id/action_kfcRegistractionFragment_to_updateuccefullyFragment"
+            app:destination="@id/updateuccefullyFragment" />
+        <action
+            android:id="@+id/action_kfcRegistractionFragment_to_kycFragment"
+            app:destination="@id/kycFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/updateuccefullyFragment"
+        android:name="com.example.xpayback.ui.home.kyc.UpdateuccefullyFragment"
+        android:label="fragment_updateuccefully"
+        tools:layout="@layout/fragment_updateuccefully">
+        <action
+            android:id="@+id/action_updateuccefullyFragment_to_profileFragment"
+            app:destination="@id/profileFragment" />
+        <action
+            android:id="@+id/action_updateuccefullyFragment_to_walletHomeFragment"
+            app:destination="@id/walletHomeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/mapsFragment"
+        android:name="com.example.xpayback.ui.home.location.MapsFragment"
+        android:label="fragment_maps"
+        tools:layout="@layout/fragment_maps" >
+        <action
+            android:id="@+id/action_mapsFragment_to_locationFragment"
+            app:destination="@id/locationFragment" />
+        <action
+            android:id="@+id/action_mapsFragment_to_locationEditFragment"
+            app:destination="@id/locationEditFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/locationFragment"
+        android:name="com.example.xpayback.ui.home.location.LocationFragment"
+        android:label="fragment_location"
+        tools:layout="@layout/fragment_location" >
+        <action
+            android:id="@+id/action_locationFragment_to_mapsFragment"
+            app:destination="@id/mapsFragment" />
+        <action
+            android:id="@+id/action_locationFragment_to_locationEditFragment"
+            app:destination="@id/locationEditFragment" />
+        <action
+            android:id="@+id/action_locationFragment_to_homeFragment"
+            app:destination="@id/dashBoardFragmentHome" />
+    </fragment>
+    <fragment
+        android:id="@+id/locationEditFragment"
+        android:name="com.example.xpayback.ui.home.location.LocationEditFragment"
+        android:label="fragment_location_edit"
+        tools:layout="@layout/fragment_location_edit" >
+        <action
+            android:id="@+id/action_locationEditFragment_to_locationFragment"
+            app:destination="@id/locationFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/settingFragment"
+        android:name="com.example.xpayback.ui.setting.SettingFragment"
+        android:label="fragment_setting"
+        tools:layout="@layout/fragment_setting" >
+        <action
+            android:id="@+id/action_settingFragment_to_profileFragment"
+            app:destination="@id/profileFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/walletHomeFragment"
+        android:name="com.example.xpayback.ui.wallet.WalletHomeFragment"
+        android:label="fragment_wallet_home"
+        tools:layout="@layout/fragment_wallet_home" >
+
+        <action
+            android:id="@+id/action_walletHomeFragment_to_QrFragment"
+            app:destination="@+id/qrScannerFragment"/>
+        <action
+            android:id="@+id/action_walletHomeFragment_to_profileFragment"
+            app:destination="@id/profileFragment" />
+        <action
+            android:id="@+id/action_walletHomeFragment_to_topUpFragment"
+            app:destination="@id/topUpFragment" />
+        <action
+            android:id="@+id/action_walletHomeFragment_to_setUpXpayWalletFragment"
+            app:destination="@id/setUpXpayWalletFragment" />
+        <action
+            android:id="@+id/action_walletHomeFragment_to_kycFragment"
+            app:destination="@id/kycFragment" />
+        <action
+            android:id="@+id/action_walletHomeFragment_to_cardFragment"
+            app:destination="@id/cardFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/topUpFragment"
+        android:name="com.example.xpayback.ui.wallet.topup.TopUpFragment"
+        android:label="fragment_top_up"
+        tools:layout="@layout/fragment_top_up" >
+        <action
+            android:id="@+id/action_topUpFragment_to_walletHomeFragment"
+            app:destination="@id/walletHomeFragment" />
+        <action
+            android:id="@+id/action_topUpFragment_to_topupReciptFragment"
+            app:destination="@id/topupReciptFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/setUpXpayWalletFragment"
+        android:name="com.example.xpayback.ui.wallet.SetUpXpayWalletFragment"
+        android:label="fragment_set_up_xpay_wallet"
+        tools:layout="@layout/fragment_set_up_xpay_wallet" >
+        <action
+            android:id="@+id/action_setUpXpayWalletFragment_to_walletHomeFragment"
+            app:destination="@id/walletHomeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/cardFragment"
+        android:name="com.example.xpayback.ui.wallet.CardFragment"
+        android:label="fragment_card"
+        tools:layout="@layout/fragment_card" >
+        <action
+            android:id="@+id/action_cardFragment_to_walletHomeFragment"
+            app:destination="@id/walletHomeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/topupReciptFragment"
+        android:name="com.example.xpayback.ui.wallet.topup.TopupReciptFragment"
+        android:label="fragment_topup_recipt"
+        tools:layout="@layout/fragment_topup_recipt" >
+        <action
+            android:id="@+id/action_topupReciptFragment_to_walletHomeFragment"
+            app:destination="@id/walletHomeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/firstPageFragment"
+        android:name="com.example.xpayback.FirstPageFragment"
+        android:label="fragment_first_page"
+        tools:layout="@layout/fragment_first_page" >
+        <action
+            android:id="@+id/action_firstPageFragment_to_splashScreenFragment"
+            app:destination="@id/splashScreenFragment" />
+        <action
+            android:id="@+id/action_firstPageFragment_to_loginPage"
+            app:destination="@id/loginPage" />
+        <action
+            android:id="@+id/action_firstPageFragment_to_homeFragment"
+            app:destination="@id/dashBoardFragmentHome" />
+        <action
+            android:id="@+id/action_firstPageFragment_to_dashBoardFragmentHome"
+            app:destination="@id/dashBoardFragmentHome" />
+        <action
+            android:id="@+id/action_firstPageFragment_to_signupFragment1"
+            app:destination="@id/signupFragment1" />
+    </fragment>
+    <fragment
+        android:id="@+id/dashBoardFragmentHome"
+        android:name="com.example.xpayback.ui.home.DashBoardFragmentHome"
+        android:label="fragment_dash_board_home"
+        tools:layout="@layout/fragment_dash_board_home" >
+
+        <action
+            android:id="@+id/action_homeFragment_to_qrScannerFragment"
+            app:destination="@id/qrScannerFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_profileFragment"
+            app:destination="@id/profileFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_notificationFragment"
+            app:destination="@id/notificationFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_locationFragment"
+            app:destination="@id/locationFragment" />
+
+    </fragment>
+</navigation>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:drawable="@drawable/edit_style"></item>
+    <item
+        android:layout_width="14dp"
+        android:layout_height="6dp"
+        android:drawable="@drawable/ic_arrow_icon"
+        android:start="2dp"
+        android:end="1dp"
+        android:gravity="right">
+    </item>
+
+</layer-list>

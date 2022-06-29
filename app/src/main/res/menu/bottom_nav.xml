@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:id="@+id/home"
+        android:icon="@drawable/doghouse"
+        android:title="@string/home"/>
+
+    <item android:id="@+id/storeFragment"
+        android:icon="@drawable/onlstr"
+        android:title="@string/stores"/>
+
+    <item android:id="@+id/qr"
+        android:title=""
+        />
+
+    <item android:id="@+id/purchases"
+        android:icon="@drawable/buy"
+        android:title="@string/purchases"/>
+
+    <item android:id="@+id/whitelist"
+        android:icon="@drawable/heard"
+        android:title="@string/watchlist"/>
+
+
+</menu>

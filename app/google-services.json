@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "814545272844",
+    "project_id": "xpayback-87241",
+    "storage_bucket": "xpayback-87241.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:814545272844:android:6ecb490d2116560162ae29",
+        "android_client_info": {
+          "package_name": "com.example.xpayback"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "814545272844-o9fbda58e4imh9konqrscuqs60kk4bn6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCbkOW0G0kVqvib8KVxK0zcIFhxIaaOTf4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "814545272844-o9fbda58e4imh9konqrscuqs60kk4bn6.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
