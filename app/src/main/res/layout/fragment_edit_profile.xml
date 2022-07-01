@@ -6,6 +6,8 @@
     android:layout_height="match_parent"
     tools:context=".ui.home.profile.EditProfileFragment">
 
+
+
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="match_parent"
@@ -62,6 +64,8 @@
         app:layout_constraintTop_toTopOf="@+id/textView14"
         app:layout_constraintVertical_bias="0.313" />
 
+
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout5"
         android:layout_width="match_parent"
@@ -92,6 +96,8 @@
             app:layout_constraintTop_toTopOf="parent"
             tools:ignore="RtlSymmetry">
 
+
+
             <LinearLayout
                 android:id="@+id/linearLayout2"
                 android:layout_width="match_parent"
@@ -119,7 +125,6 @@
                     android:gravity="end"
                     android:paddingEnd="2dp"
                     android:textColor="@color/black"
-                    android:text="sandeep"
                     android:textStyle="bold"
                     tools:ignore="RtlSymmetry" />
 
@@ -150,7 +155,6 @@
                     android:layout_weight="1"
                     android:gravity="end"
                     android:paddingEnd="2dp"
-                    android:text="7907492539"
                     android:textColor="@color/black"
                     android:textStyle="bold"
                     tools:ignore="RtlSymmetry" />
@@ -198,7 +202,6 @@
                     android:layout_weight="1"
                     android:gravity="end"
                     android:paddingEnd="2dp"
-                    android:text="22/02/2222"
                     android:textColor="@color/black"
                     android:textStyle="bold"
                     tools:ignore="RtlSymmetry" />
@@ -265,7 +268,6 @@
                     android:layout_weight="1"
                     android:gravity="end"
                     android:paddingEnd="2dp"
-                    android:text="sss@gmail.com"
                     android:textColor="@color/black"
                     android:textStyle="bold"
                     tools:ignore="RtlSymmetry" />
@@ -508,6 +510,23 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#73000000"
+        android:id="@+id/progress_layout">
+
+        <ProgressBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

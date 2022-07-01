@@ -258,7 +258,7 @@ class HomeFragmentMain : BaseFragment<AuthViewModel,FragmentHomeFragmentmainBind
     }
 
     override fun getFragmentRepository() =
-        AuthRepository(retrofitInstances.buildApi(Api::class.java))
+        AuthRepository(retrofitInstances.buildApi(Api::class.java),userPreferences)
 
 }
 

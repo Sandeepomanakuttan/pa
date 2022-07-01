@@ -1,7 +1,7 @@
-package com.example.xpayback.ui.auth
+package com.example.xpayback.ui.home.profile
 
 import com.example.xpayback.network.Api
-import com.example.xpayback.network.UserPreferences
+import com.example.xpayback.network.UserApi
 import com.example.xpayback.response.AuthResponse
 import com.example.xpayback.response.LoginResponse
 import com.example.xpayback.response.RequestSignUpBody
@@ -10,25 +10,11 @@ import com.example.xpayback.ui.base.BaseRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 
-class AuthRepository(private val api : Api,private val preferences: UserPreferences):BaseRepository() {
+class UserRepository(private val api : UserApi):BaseRepository() {
 
 
 
-
-    suspend fun onPassingPhoneNumber(number: String) = safeApiCall{
-        api.loginPhoneNumber(number) }
-
-    suspend fun onSubmitOtp(code: String, number: String, key: String) = safeApiCall {
-        api.otpVerification(code,number,key)
-    }
-
-    suspend fun onRegitration(data: RequestSignUpBody) =safeApiCall { api.signUp(data) }
-    suspend fun saveAccessTokens(accessToken: String) {
-            preferences.saveAccessTokens(accessToken)
-    }
-
-
-    // suspend fun onSubmitOtp(code: String) = safeApiCall { api.otpVerification(code) }
+    suspend fun getUser()=safeApiCall{api.getUser()}
 
     }
 

@@ -37,7 +37,7 @@ class SignupFragment3 : BaseFragment<AuthViewModel,FragmentSignup3Binding,AuthRe
     }
 
     override fun getFragmentRepository() =
-        AuthRepository(retrofitInstances.buildApi(Api::class.java))
+        AuthRepository(retrofitInstances.buildApi(Api::class.java),userPreferences)
 
 
 }

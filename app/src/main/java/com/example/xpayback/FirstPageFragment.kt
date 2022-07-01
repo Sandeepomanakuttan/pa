@@ -7,8 +7,12 @@ import android.os.Looper
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.asLiveData
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.Navigation
+import com.example.xpayback.network.UserPreferences
 import com.example.xpayback.ui.auth.VerificationPhFragment
 import com.example.xpayback.ui.splash.SplashFragment2
 
@@ -35,18 +39,25 @@ class FirstPageFragment : Fragment() {
 
         val login = requireActivity().getSharedPreferences(VerificationPhFragment().authTokenPreff,0);
         val loginChecker=login.getString("token",null)
+
+        val userPreference = UserPreferences(requireContext())
         Handler(Looper.getMainLooper()).postDelayed({
 
             if (!checker){
                 Navigation.findNavController(view).navigate(R.id.action_firstPageFragment_to_splashScreenFragment)
             }else{
 
-                if (loginChecker!=null){
-                    Navigation.findNavController(view)
-                        .navigate(R.id.action_firstPageFragment_to_dashBoardFragmentHome)
-                }else {
-                    Navigation.findNavController(view)
-                        .navigate(R.id.action_firstPageFragment_to_loginPage)
+                userPreference.accessToken.asLiveData().observe(viewLifecycleOwner){
+
+                    if (it != null){
+                        Toast.makeText(requireContext(), it.toString(), Toast.LENGTH_SHORT).show()
+                        Navigation.findNavController(view)
+                            .navigate(R.id.action_firstPageFragment_to_dashBoardFragmentHome)
+                    }
+                    else {
+                        Navigation.findNavController(view)
+                            .navigate(R.id.action_firstPageFragment_to_loginPage)
+                    }
                 }
 
             }

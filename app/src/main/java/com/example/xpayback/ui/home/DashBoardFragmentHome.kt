@@ -12,13 +12,16 @@ import com.example.xpayback.MenuBottomAdaptor
 import com.example.xpayback.R
 import com.example.xpayback.databinding.FragmentDashBoardHomeBinding
 import com.example.xpayback.network.Api
+import com.example.xpayback.network.UserApi
 import com.example.xpayback.ui.DashBoardHomeMainFragment
 import com.example.xpayback.ui.auth.AuthRepository
 import com.example.xpayback.ui.auth.AuthViewModel
 import com.example.xpayback.ui.base.BaseFragment
+import com.example.xpayback.ui.home.profile.UserRepository
+import com.example.xpayback.ui.home.profile.UserViewModel
 
 
-class DashBoardFragmentHome : BaseFragment<AuthViewModel,FragmentDashBoardHomeBinding,AuthRepository>() {
+class DashBoardFragmentHome : BaseFragment<UserViewModel,FragmentDashBoardHomeBinding,UserRepository>() {
     override fun getFragmentBinding(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -132,9 +135,9 @@ class DashBoardFragmentHome : BaseFragment<AuthViewModel,FragmentDashBoardHomeBi
     }
 
     override fun getFragmentRepository() =
-        AuthRepository(retrofitInstances.buildApi(Api::class.java))
+        UserRepository(retrofitInstances.buildApi(UserApi::class.java))
 
-    override fun getViewModel() = AuthViewModel::class.java
+    override fun getViewModel() = UserViewModel::class.java
 
 
 

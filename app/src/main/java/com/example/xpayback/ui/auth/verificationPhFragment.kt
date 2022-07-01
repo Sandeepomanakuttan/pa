@@ -102,20 +102,20 @@ class VerificationPhFragment :
 //                    val edit = preffer.edit()
 //                    edit.putBoolean("loggedIn", true)
 //                    edit.apply()
-                    val auth =
-                        requireActivity().getSharedPreferences(VerificationPhFragment().authTokenPreff,
-                            0)
-                    val editer = auth.edit()
-                    editer.putString("token", it.value.access_token)
-                    editer.apply()
-                    binding.progress.isVisible = false
-                    binding.btnSubmit.isVisible = true
+//                    val auth =
+//                        requireActivity().getSharedPreferences(VerificationPhFragment().authTokenPreff,
+//                            0)
+//                    val editer = auth.edit()
+//                    editer.putString("token", it.value.access_token)
+//                    editer.apply()
+//                    binding.progress.isVisible = false
+//                    binding.btnSubmit.isVisible = true
                     val bundle = Bundle()
 
-                    val userPreferences = UserPreferences(requireContext())
+
 
                     lifecycleScope.launchWhenResumed {
-                        userPreferences.saveAccessTokens(it.value.access_token)
+                        viewModel.saveAccessTokens(it.value.access_token)
                         Toast.makeText(requireContext(), it.value.access_token, Toast.LENGTH_SHORT).show()
                     }
 
@@ -229,7 +229,7 @@ class VerificationPhFragment :
 
 
     override fun getFragmentRepository() =
-        AuthRepository(retrofitInstances.buildApi(Api::class.java))
+        AuthRepository(retrofitInstances.buildApi(Api::class.java),userPreferences)
 
 
 }

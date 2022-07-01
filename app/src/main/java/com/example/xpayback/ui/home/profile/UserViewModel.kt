@@ -1,4 +1,4 @@
-package com.example.xpayback.ui.auth
+package com.example.xpayback.ui.home.profile
 
 import android.annotation.SuppressLint
 import android.util.Log
@@ -15,7 +15,7 @@ import com.google.firebase.auth.PhoneAuthCredential
 import kotlinx.coroutines.launch
 
 @SuppressLint("StaticFieldLeak")
-class AuthViewModel(private val repository: AuthRepository) :ViewModel() {
+class UserViewModel(private val repository: UserRepository) :ViewModel() {
 
 
     private val _userResponse:MutableLiveData<Resource<UsersResponseItem>> = MutableLiveData()
@@ -23,41 +23,9 @@ class AuthViewModel(private val repository: AuthRepository) :ViewModel() {
         get() = _userResponse
 
 
-
-
-    private val _sendOtpResponse : MutableLiveData<Resource<AuthResponse>> = MutableLiveData()
-    val sendOtpResponse:LiveData<Resource<AuthResponse>>
-        get() = _sendOtpResponse
-
-    private val _signUpResponse : MutableLiveData<Resource<SignUpResponse>> = MutableLiveData()
-    val signUpResponse:LiveData<Resource<SignUpResponse>>
-        get() = _signUpResponse
-
-
-    private val OtpResponse : MutableLiveData<Resource<LoginResponse>> = MutableLiveData()
-    val OtpRespo:LiveData<Resource<LoginResponse>>
-        get() = OtpResponse
-
-    suspend fun onPassPhoneNumber(number : String) {
-        _sendOtpResponse.value=Resource.Loading
-        _sendOtpResponse.value = repository.onPassingPhoneNumber(number)}
-
-
-
-    suspend fun onSubmitOtp(code: String, number: String, key: String) {
-        OtpResponse.value=Resource.Loading
-        OtpResponse.value = repository.onSubmitOtp(code, number, key)
-    }
-
-    suspend fun onRegitration(data: RequestSignUpBody) {
-        _signUpResponse.value=Resource.Loading
-        _signUpResponse.value=repository.onRegitration(data)
-    }
-
-    fun saveAccessTokens(accessToken: String) {
-        viewModelScope.launch {
-            repository.saveAccessTokens(accessToken)
-        }
+    suspend fun getUser(){
+        _userResponse.value=Resource.Loading
+        _userResponse.value=repository.getUser()
     }
 
 

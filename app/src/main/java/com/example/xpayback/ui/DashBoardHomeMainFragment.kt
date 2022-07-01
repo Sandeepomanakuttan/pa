@@ -15,15 +15,18 @@ import androidx.recyclerview.widget.*
 import com.example.xpayback.R
 import com.example.xpayback.databinding.*
 import com.example.xpayback.network.Api
+import com.example.xpayback.network.UserApi
 import com.example.xpayback.ui.auth.AuthRepository
 import com.example.xpayback.ui.auth.AuthViewModel
 import com.example.xpayback.ui.base.BaseFragment
 import com.example.xpayback.ui.home.model.HomeRecyclerviewAdaptor
+import com.example.xpayback.ui.home.profile.UserRepository
+import com.example.xpayback.ui.home.profile.UserViewModel
 import kotlinx.android.synthetic.main.fragment_dash_board_home_main.*
 import kotlinx.android.synthetic.main.kyc_card.view.*
 
 
-class DashBoardHomeMainFragment : BaseFragment<AuthViewModel, FragmentDashBoardHomeMainBinding,AuthRepository>() {
+class DashBoardHomeMainFragment : BaseFragment<UserViewModel, FragmentDashBoardHomeMainBinding,UserRepository>() {
 
     var arrayListDashBoard=ArrayList<DashBoardRecyclerItem.trendingCardDataClass>()
     var arrayListDashBoards=ArrayList<DashBoardRecyclerItem.topCashbackCardDataClass>()
@@ -33,7 +36,7 @@ class DashBoardHomeMainFragment : BaseFragment<AuthViewModel, FragmentDashBoardH
     private val donateRView = HomeRecyclerviewAdaptor()
 
 
-    override fun getViewModel()=AuthViewModel::class.java
+    override fun getViewModel()=UserViewModel::class.java
 
     override fun getFragmentBinding(
         inflater: LayoutInflater,
@@ -125,7 +128,7 @@ class DashBoardHomeMainFragment : BaseFragment<AuthViewModel, FragmentDashBoardH
     }
 
     override fun getFragmentRepository() =
-        AuthRepository(retrofitInstances.buildApi(Api::class.java))
+        UserRepository(retrofitInstances.buildApi(UserApi::class.java))
 
 
 }

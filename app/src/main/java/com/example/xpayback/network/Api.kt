@@ -16,9 +16,6 @@ interface Api {
   suspend fun signUp(@Body data:RequestSignUpBody):SignUpResponse
 
 
-  @POST("user/me/")
-  suspend fun getUser():UsersResponseItem
-
 
 }
 

@@ -175,5 +175,5 @@ class QrScannerFragment : BaseFragment<AuthViewModel,FragmentQrScannerBinding,Au
 
 
     override fun getFragmentRepository() =
-        AuthRepository(retrofitInstances.buildApi(Api::class.java))
+        AuthRepository(retrofitInstances.buildApi(Api::class.java),userPreferences)
 }

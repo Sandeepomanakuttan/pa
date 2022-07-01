@@ -14,7 +14,7 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
 
-class RetrofitInstances constructor() {
+class RetrofitInstances {
 
     companion object{
         const val baseUrl = "http://xpayback.in:8000/xpayback/"
@@ -52,7 +52,7 @@ class RetrofitInstances constructor() {
                 OkHttpClient.Builder()
                 .addInterceptor {chain ->
                     chain.proceed(chain.request().newBuilder().also{
-                        authToken?.let { it1 -> it.addHeader("Authorization","Bearer $it1") }
+                        authToken?.let { it1 -> it.addHeader("Authorization","Bearer $authToken") }
                     }.build())
                 }.also {client ->
 
@@ -60,9 +60,9 @@ class RetrofitInstances constructor() {
                     val logging = HttpLoggingInterceptor()
                     logging.setLevel(HttpLoggingInterceptor.Level.BODY)
                     client.addInterceptor(logging)
-//                    client.addInterceptor(logging)
-//                        client.addInterceptor(ReceivedCookiesInterceptor())
-//                                client.addInterceptor(AddCookiesInterceptor())
+                    client.addInterceptor(logging)
+                        client.addInterceptor(ReceivedCookiesInterceptor())
+                                client.addInterceptor(AddCookiesInterceptor())
                 }
 
             }.build()
@@ -97,9 +97,6 @@ class ReceivedCookiesInterceptor() : Interceptor {
         return originalResponse
     }
 
-//    init {
-//        this.context = context
-//    }
 }
 
 class AddCookiesInterceptor() : Interceptor {

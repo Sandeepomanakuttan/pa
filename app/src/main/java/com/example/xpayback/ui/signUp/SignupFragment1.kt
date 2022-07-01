@@ -137,7 +137,7 @@ class SignupFragment1 : BaseFragment<AuthViewModel,FragmentSignup1Binding,AuthRe
     }
 
     override fun getFragmentRepository() =
-        AuthRepository(retrofitInstances.buildApi(Api::class.java))
+        AuthRepository(retrofitInstances.buildApi(Api::class.java),userPreferences)
 
 
     fun getCurrentDate():String{

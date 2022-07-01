@@ -16,25 +16,28 @@ import com.example.xpayback.R
 import com.example.xpayback.databinding.FragmentEditProfileBinding
 import com.example.xpayback.network.Api
 import com.example.xpayback.network.Resource
+import com.example.xpayback.network.UserApi
 import com.example.xpayback.network.UserPreferences
 import com.example.xpayback.ui.auth.AuthRepository
 import com.example.xpayback.ui.auth.AuthViewModel
 import com.example.xpayback.ui.auth.VerificationPhFragment
 import com.example.xpayback.ui.base.BaseFragment
 import com.example.xpayback.utils.handleApiError
+import com.example.xpayback.utils.visible
 import kotlinx.android.synthetic.main.fragment_edit_profile.*
+import kotlinx.coroutines.flow.first
+import kotlinx.coroutines.runBlocking
 
 
-class EditProfileFragment : BaseFragment<AuthViewModel,FragmentEditProfileBinding,AuthRepository>() {
+class EditProfileFragment : BaseFragment<UserViewModel,FragmentEditProfileBinding,UserRepository>() {
 
-    private var loginChecker:String?=null
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
     }
 
-    override fun getViewModel() = AuthViewModel::class.java
+    override fun getViewModel() = UserViewModel::class.java
 
     override fun getFragmentBinding(
         inflater: LayoutInflater,
@@ -48,6 +51,19 @@ class EditProfileFragment : BaseFragment<AuthViewModel,FragmentEditProfileBindin
         lifecycleScope.launchWhenResumed {
 
             viewModel.getUser()
+        }
+
+        viewModel.userResponse.observe(viewLifecycleOwner){
+            progress_layout.visible(it is Resource.Loading)
+            when(it){
+                is Resource.Success ->{
+                    txtName.text=it.value.username
+                    txtPhone.text=it.value.phonenumber.toString()
+                    txtEmail.text=it.value.email
+                    Toast.makeText(requireContext(), it.value.phonenumber.toString(), Toast.LENGTH_SHORT).show()
+                }
+                is Resource.Failure->handleApiError(it)
+            }
         }
 
         binding.editControl.setOnClickListener {
@@ -64,45 +80,17 @@ class EditProfileFragment : BaseFragment<AuthViewModel,FragmentEditProfileBindin
 
         }
 
-        val userPreferences = UserPreferences(requireContext())
-
-        userPreferences.accessToken.asLiveData().observe(viewLifecycleOwner){
-
-            loginChecker = it
-
-        }
-
-        viewModel.userResponse.observe(viewLifecycleOwner){
-            when(it){
-                is Resource.Success ->{
-                    Toast.makeText(requireContext(), it.value.phonenumber.toString(), Toast.LENGTH_SHORT).show()
-                }
-                is Resource.Failure->handleApiError(it)
-            }
-        }
-
-
-
-
-
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
-        val userPreferences = UserPreferences(requireContext())
-
-        userPreferences.accessToken.asLiveData().observe(viewLifecycleOwner){ it ->
-
-            Toast.makeText(requireContext(), it.toString(), Toast.LENGTH_SHORT).show()
-
-
-        }
     }
 
 
-    override fun getFragmentRepository() =
-        AuthRepository(retrofitInstances.buildApi(Api::class.java,loginChecker))
+    override fun getFragmentRepository() : UserRepository{
+        val token = runBlocking { userPreferences.accessToken.first() }
+        return UserRepository(retrofitInstances.buildApi(UserApi::class.java,token))}
 
 
 

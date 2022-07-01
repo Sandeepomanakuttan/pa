@@ -171,7 +171,7 @@ class KycFragment : BaseFragment<AuthViewModel,FragmentKycBinding,AuthRepository
         binding.root
         }
     override fun getFragmentRepository() =
-        AuthRepository(retrofitInstances.buildApi(Api::class.java))
+        AuthRepository(retrofitInstances.buildApi(Api::class.java),userPreferences)
 
 
 }
